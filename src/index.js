@@ -1,15 +1,15 @@
 'use strict';
 
-const Cacheman = require('@kensingtontech/recacheman');
+const Cacheman = require('recacheman');
 const log = require('loglevel');
 
 const noop = () => {};
 
-class GooseCache {
+class MongoCache {
 
   constructor(mongoose, options = {}, logLevel = 'warn') {
     if (typeof mongoose.Model.hydrate !== 'function') {
-      throw new Error('Cachegoose is only compatible with versions of mongoose that implement the `model.hydrate` method');
+      throw new Error('MongoCache is only compatible with versions of mongoose that implement the `model.hydrate` method');
     }
 
     if (this.hasRun) {
@@ -124,6 +124,6 @@ class GooseCache {
 }
 
 module.exports = {
-  GooseCache,
-  default: GooseCache
+  MongoCache,
+  default: MongoCache
 };

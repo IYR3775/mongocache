@@ -2,14 +2,14 @@ import { Mongoose } from 'mongoose';
 
 
 
-export interface GooseCacheOptions {
+export interface MongoCacheOptions {
 	engine?: 'memory';
 }
 
 
 
-export declare class GooseCache {
-	constructor(mongoose: Mongoose, cacheOptions: GooseCacheOptions, logLevel?: 'trace' | 'debug' | 'info' | 'warn' | 'error');
+export declare class MongoCache {
+	constructor(mongoose: Mongoose, cacheOptions: MongoCacheOptions, logLevel?: 'trace' | 'debug' | 'info' | 'warn' | 'error');
 	clearCache(key: string | null, cb?: () => void): void;
 	clearCachePromise(key: string | null): Promise<void>;
 	get(key: string, cb?: () => void);
@@ -18,7 +18,7 @@ export declare class GooseCache {
 	setPromise(key: string, value: any, ttl: number): Promise<any>;
 }
 
-export default GooseCache;
+export default MongoCache;
 
 
 
