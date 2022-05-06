@@ -1,0 +1,52 @@
+{
+  "name": "mongocache",
+  "version": "9.0.14",
+  "description": "Mongoose cacheing",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "recacheman": "^2.2.4",
+    "loglevel": "^1.7.1",
+    "sha1": "^1.1.1"
+  },
+  "peerDependencies": {
+    "mongoose": "^6.2.3"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.0",
+    "eslint": "^4.16.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "mocha": "^8.2.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mongoose": "^6.2.3",
+    "nyc": "^15.1.0",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run build && nyc --reporter=html --reporter=text mocha --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint .",
+    "prepublishOnly": "npm version patch -m \"Bumped patch to %s\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kensingtontech/goosecache.git"
+  },
+  "keywords": [
+    "cache",
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "redis",
+    "store",
+    "ttl"
+  ],
+  "author": "IYA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IYR3775/mongocache/issues"
+  },
+  "homepage": "https://github.com/IYR3775/mongocache"
+}
