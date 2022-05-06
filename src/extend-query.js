@@ -6,7 +6,7 @@ const noop = () => { };
 let log;
 
 
-module.exports = function (mongoose, gooseCache, logger) {
+module.exports = function (mongoose, mongoCache, logger) {
   const mongooseExec = mongoose.Query.prototype.exec;
   log = logger;
 
@@ -103,7 +103,7 @@ module.exports = function (mongoose, gooseCache, logger) {
               key = results[derivedKey];
               log.debug('mongoose.Query.prototype.exec(): Derived key result:', key);
             }
-            gooseCache.set(key, results, ttl, () => {
+            mongoCache.set(key, results, ttl, () => {
               callback(null, results);
               return resolve(results);
             });
@@ -115,7 +115,7 @@ module.exports = function (mongoose, gooseCache, logger) {
       };
 
       log.debug('mongoose.Query.prototype.exec(): Getting results from cache with cache.get(), key:', key);
-      gooseCache.get(key, onCachedResults);
+      mongoCache.get(key, onCachedResults);
     });
   };
 
